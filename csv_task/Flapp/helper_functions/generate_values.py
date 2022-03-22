@@ -13,15 +13,15 @@ def get_random_data(column, df):
     return random.choice(df[column].values.tolist())
 
 
-def get_random_char(what, number):
+def get_random_char(list_of_chars, number):
     """
     function gets passed number of random value from passed list
 
-    :param what: list
+    :param list_of_chars: list
     :param number: int
     :return: random char or integer
     """
-    return random.sample(what, number)
+    return random.sample(list_of_chars, number)
 
 
 def check_numeric(column, df):

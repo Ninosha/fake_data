@@ -10,6 +10,7 @@ def get_random_data(column, df):
     :param df: pandas dataframe of file
     :return: list of column values
     """
+
     return random.choice(df[column].values.tolist())
 
 
@@ -21,6 +22,7 @@ def get_random_char(list_of_chars, number):
     :param number: int
     :return: random char or integer
     """
+
     return random.sample(list_of_chars, number)
 
 

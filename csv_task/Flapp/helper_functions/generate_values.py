@@ -2,14 +2,12 @@ import string
 import random
 
 
-def get_random_data(column,df):
-    new_value = random.choice(df[column].values.tolist())
-    return new_value
+def get_random_data(column, df):
+    return random.choice(df[column].values.tolist())
 
 
 def get_random_char(what, number):
-    char = random.sample(what, number)
-    return char
+    return random.sample(what, number)
 
 
 def check_numeric(column, df):
@@ -27,4 +25,6 @@ def check_numeric(column, df):
                 lst += ("".join(get_random_char(string.ascii_lowercase, 1)))
             elif value[i].isalpha() and value[i].isupper():
                 lst += ("".join(get_random_char(string.ascii_uppercase, 1)))
+            elif value[i].isalpha() and value[i].isupper():
+                lst += ("".join(get_random_char(string.punctuation, 1)))
         return "".join(lst)

@@ -23,7 +23,7 @@ def read_csv(url):
         return file
 
 
-def fake_data(num, filename):
+def generate_fake_data(num, filename):
     """
     function takes received data, fakes it depending on number user passes
 
@@ -142,7 +142,7 @@ def check_in_redis(num, filename):
         return getted
 
     except Exception:
-        fake_data(num, filename)
+        generate_fake_data(num, filename)
         df_csv = pd.read_csv(URL + filename)
         print("i'm setting")
         r.set(filename, context.serialize(df_csv).to_buffer().to_pybytes())

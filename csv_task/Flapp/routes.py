@@ -1,5 +1,5 @@
 from Flapp import app
-from Flapp.helper_functions.test import check_in_redis, read_csv, URL
+from Flapp.helper_functions.data_generator import check_in_redis, read_csv, URL
 from flask import request
 from Flapp.helper_functions.db import to_databse
 
@@ -34,7 +34,9 @@ def home():
         # inserts generated fake data to postgres
         to_databse(host, database, user, password, port, redis_checked_data, filename)
 
-        return "200"
+        response = "Success"
+        return response, 200
 
     if request.method == "GET":
-        return "200"
+        response = "Success"
+        return response, 200

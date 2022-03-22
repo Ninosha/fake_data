@@ -2,14 +2,12 @@ import string
 import random
 
 
-def get_random_data(column,df):
-    new_value = random.choice(df[column].values.tolist())
-    return new_value
+def get_random_data(column, df):
+    return random.choice(df[column].values.tolist())
 
 
 def get_random_char(what, number):
-    char = random.sample(what, number)
-    return char
+    return random.sample(what, number)
 
 
 def check_numeric(column, df):

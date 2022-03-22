@@ -23,7 +23,7 @@ def read_csv(url):
         return file
 
 
-def generate_fake_data(num, filename):
+def fake_data(num, filename):
     """
     function takes received data, fakes it depending on number user passes
 
@@ -36,7 +36,7 @@ def generate_fake_data(num, filename):
     file_columns = list(file.columns)
     df = pd.DataFrame(file)
     length = len(df.index)
-    #
+
     def check_if_match(my_cols, data_cols):
         """
         checks if received columns are the columns function handles and adds to matching_dict,
@@ -133,7 +133,7 @@ def check_in_redis(num, filename):
     except Exception as ConnectionError:
         return ConnectionError
 
-    # r.flushdb()
+    r.flushdb()
     context = pa.default_serialization_context()
 
     try:
@@ -142,7 +142,7 @@ def check_in_redis(num, filename):
         return getted
 
     except Exception:
-        generate_fake_data(num, filename)
+        fake_data(num, filename)
         df_csv = pd.read_csv(URL + filename)
         print("i'm setting")
         r.set(filename, context.serialize(df_csv).to_buffer().to_pybytes())

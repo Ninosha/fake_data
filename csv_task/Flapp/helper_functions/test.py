@@ -36,7 +36,7 @@ def generate_fake_data(num, filename):
     file_columns = list(file.columns)
     df = pd.DataFrame(file)
     length = len(df.index)
-
+    #
     def check_if_match(my_cols, data_cols):
         """
         checks if received columns are the columns function handles and adds to matching_dict,
